@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rudimentary GUI For AddressBook Web Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th> Buddy ID</th>
+                <th> Buddy Name</th>
+                <th> Buddy Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:if="${buddies.empty}">
+                <td colspan="2"> No Buddies in AddressBook</td>
+            </tr>
+            <tr th:each="buddy : ${buddies}">
+                <td><span th:text="${buddy.id}"> Id </span></td>
+                <td><span th:text="${buddy.name}"> Name </span></td>
+                <td><span th:text="${buddy.phoneNumber}"> Phone Number </span></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
