@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -32,6 +32,9 @@ public class AddressBookControllerTests {
         this.mockMvc.perform(post("/add-buddy?addressBookID=1&buddyName=Raj&buddyNumber=613-987-6543"))
                 .andExpect(status().isOk()).andExpect(content()
                         .string(containsString("{\"listOfBuddies\":[{\"id\":1,\"name\":\"Raj\",\"phoneNumber\":\"613-987-6543\"}]")));
+        this.mockMvc.perform(get("/view-address-book?addressBookID=1"))
+                .andExpect(status().isOk()).andExpect(content()
+                        .string(containsString("Raj")));
 
     }
 
