@@ -22,6 +22,7 @@ public class AddressBook{
     public void addBuddy(BuddyInfo buddy)
     {
         //String buddyData = buddy.toString();
+        //test
         if(!listOfBuddies.contains(buddy))
         {
             listOfBuddies.add(buddy);
